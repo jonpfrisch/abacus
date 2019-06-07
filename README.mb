@@ -1,0 +1,42 @@
+Jon Frisch
+Abacus Insights Coding Test
+
+Unit tests and java artifacts have been included in the git repo. However, I'm not able to provide a class or sequence diagram at this time. Prior to attempting this test I had zero java experience, so I'm not familiar with those concepts yet. In order to get this to work, I downloaded Java SDK, and Gradle then followed a spring guide for building java projects with gradle ( https://spring.io/guides/gs/gradle/ ). After I got that working, I followed the accessing data at rest guide ( https://spring.io/guides/gs/accessing-data-rest/ ), Once that was working in it's original form, I modified it for the required variables and updated the test file to reflect that.
+
+While my java and AWS experience is lacking, I've been working with clinical and claim data on various RDS systems (Oracle, SQL Server, and Netezza) for the past 7 years. I'm hoping Abacus would be a good place to utilize my data expertise, and expand my technical understanding.
+
+Build Instructions:
+1. A single executeable JAR file has been created to run this application. Additional builds are not required.
+
+Running the app locally:
+1. Create empty folder in file explorer then git clone 
+2. Open a git bash window in the newly cloned repo and run:
+	java -jar build/libs/abacus-0.1.0.jar
+3. Open a second bash window to start running curl commands for POST, PUT, GET, DELETE, etc. against localhost:8080
+
+Deployment:
+My understanding of Spring is minimal at best, and I'm still working through an AWS Solution Architect course, but I would start with the process outlined here: https://aws.amazon.com/blogs/devops/deploying-a-spring-boot-application-on-aws-using-aws-elastic-beanstalk/
+
+This uses AWS's Elastic Beanstalk to deploy a spring boot application, after adjusting the build.gradle file to use a mysql connector instead of the built-in H2 storage.
+
+A secondary method of deployment is not something I'm familiar with at this time.
+
+Discussion:
+1. Security
+
+I understand the VPC portion conceptually, but haven't built one yet. The security details beyond the general set-up are beyond the scope of the class I'm taking (udemy A Cloud Guru), and while I'd like to understand  more, I need real-world experience with an established system to understand how it works.
+
+HTTPS between the client and load balancer: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https.html
+
+VPC with the web and db servers in your private subnet, and load balancer and NAT gateway in public subnet:
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/vpc-rds.html
+
+2. Monitoring
+
+Monitoring of endpoint would be done with CloudWatch.
+
+3. Scaling
+
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.as.html
+
+This details how to use the CloudWatch alarms to see monitor network traffic. If the alarms are consistency scaling the system up, I would either increase the max instances, or adjust the instance types in the launch configuration.
