@@ -9,13 +9,14 @@ Build Instructions:
 1. A single executeable JAR file has been created to run this application. Additional builds are not required.
 
 Running the app locally:
-1. Create empty folder in file explorer then git clone 
-2. Open a git bash window in the newly cloned repo and run:
+1. Run the following command in git bash to clone the repo to a local folder:
+	git clone https://github.com/jonpfrisch/abacus.git
+2. CD into the newly cloned repo so you can see the build and src folders along with the build.gradle file then run the following command:
 	java -jar build/libs/abacus-0.1.0.jar
 3. Open a second bash window to start running curl commands for POST, PUT, GET, DELETE, etc. against localhost:8080
 
 Deployment:
-My understanding of Spring is minimal at best, and I'm still working through an AWS Solution Architect course, but I would start with the process outlined here: https://aws.amazon.com/blogs/devops/deploying-a-spring-boot-application-on-aws-using-aws-elastic-beanstalk/
+My understanding of Spring is minimal at best, and I'm still working through an AWS Solution Architect Associate course, but I would start with the process outlined here: https://aws.amazon.com/blogs/devops/deploying-a-spring-boot-application-on-aws-using-aws-elastic-beanstalk/
 
 This uses AWS's Elastic Beanstalk to deploy a spring boot application, after adjusting the build.gradle file to use a mysql connector instead of the built-in H2 storage.
 
@@ -24,7 +25,7 @@ A secondary method of deployment is not something I'm familiar with at this time
 Discussion:
 1. Security
 
-I understand the VPC portion conceptually, but haven't built one yet. The security details beyond the general set-up are beyond the scope of the class I'm taking (udemy A Cloud Guru), and while I'd like to understand  more, I need real-world experience with an established system to understand how it works.
+I understand the VPC portion conceptually, but haven't built one yet. The security details after the general set-up are beyond the scope of the class I'm taking (Udemy A Cloud Guru), and while I'd like to understand  more, I need real-world experience with an established system to understand how it works. 
 
 HTTPS between the client and load balancer: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https.html
 
